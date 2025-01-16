@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Animaciones de las bolas de billar */
+@keyframes moveBall1 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(200px, 150px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes moveBall2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-150px, -200px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes moveBall3 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(250px, -100px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes moveBall4 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-200px, 100px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes moveBall5 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(150px, 200px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes moveBall6 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-100px, -250px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Clase para animar las bolas */
+.animate-move-ball-1 {
+  animation: moveBall1 5s infinite;
+}
+
+.animate-move-ball-2 {
+  animation: moveBall2 5s infinite;
+}
+
+.animate-move-ball-3 {
+  animation: moveBall3 5s infinite;
+}
+
+.animate-move-ball-4 {
+  animation: moveBall4 5s infinite;
+}
+
+.animate-move-ball-5 {
+  animation: moveBall5 5s infinite;
+}
+
+.animate-move-ball-6 {
+  animation: moveBall6 5s infinite;
+}
+
+/* Fondo de la mesa de billar (para MetodosPago) */
+.bg-blue-500 {
+  background-color: #4682b4; /* Azul más suave de la mesa de billar */
+}
+
+.bg-blue-400 {
+  background-color: #5a8fb7; /* Azul intermedio */
+}
+
+.bg-gray-700 {
+  background-color: #2d3748; /* Gris oscuro para simular el código QR */
+}
+
+.bg-gray-800 {
+  background-color: #1a202c; /* Fondo oscuro para el panel */
+}
+
+.text-yellow-400 {
+  color: #facc15; /* Color amarillo similar a los bordes de la mesa */
+}
+
+.text-white {
+  color: white;
+}
+
+/* Animación para las bolas de billar (opcional) */
+@keyframes moveBall1 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(200px, 150px); }
+  100% { transform: translate(0, 0); }
+}
+
+.animate-move-ball-1 {
+  animation: moveBall1 5s infinite;
+}
