@@ -8,21 +8,34 @@ import GestionProductos from "./pages/GestionProductos";
 import MetodosPago from "./pages/MetodosPago";
 import Licencia from "./pages/Licencia";
 import AdminDashboard from "./Dashboard";
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/dashboard" element={<AdminDashboard />}>
-        <Route index element={<Navigate to="inicio" />} />
-        <Route path="inicio" element={<Inicio />} />
-        <Route path="gestion-mesas" element={<GestionMesas />} />
-        <Route path="configuracion" element={<Configuracion />} />
-        <Route path="gestion-productos" element={<GestionProductos />} />
-        <Route path="metodos-pago" element={<MetodosPago />} />
-        <Route path="licencia" element={<Licencia />} />
-      </Route>
-    </Routes>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#E80B2C',
+        },
+      }}
+    >
+      <Router> {/* Aquí envolvemos la aplicación en el enrutador */}
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<AdminDashboard />}>
+            <Route index element={<Navigate to="inicio" />} />
+            <Route path="inicio" element={<Inicio />} />
+            <Route path="gestion-mesas" element={<GestionMesas />} />
+            <Route path="configuracion" element={<Configuracion />} />
+            <Route path="gestion-productos" element={<GestionProductos />} />
+            <Route path="metodos-pago" element={<MetodosPago />} />
+            <Route path="licencia" element={<Licencia />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ConfigProvider>
+
   );
 };
 
