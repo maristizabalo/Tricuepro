@@ -1,21 +1,31 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Particle from "./components/layout/Particle";
 import { Row, Col, Form, Input, Button, Typography, notification } from 'antd';
 import { FaLock, FaUserAlt } from "react-icons/fa";
 import Title from "antd/es/typography/Title";
 import logo_tricuepro from './assets/images/logo_v1_not_background.png';
+import Loading from "./components/layout/Loading";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // Usar useNavigate para navegar
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Email:", email, "Password:", password);
-    alert(`Iniciar sesión con:\nEmail: ${email}\nPassword: ${password}`);
-    navigate("/dashboard"); // Navegar a la ruta /dashboard
+  // OLD CODE SUBMIT
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Email:", email, "Password:", password);
+  //   alert(`Iniciar sesión con:\nEmail: ${email}\nPassword: ${password}`);
+  //   navigate("/dashboard"); // Navegar a la ruta /dashboard
+  // };
+
+  // NEW CODE SUBMIT
+  const handleLogin = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      navigate("/dashboard");
+    }, 16000);
   };
 
   return (
@@ -64,77 +74,81 @@ const Login = () => {
     // </div>
 
     // NEW CODE
-    <>
-      <Particle />
-      <div>
-        <div className="full-view">
-          <Row className="h-svh">
-            <Col
-              xs={12} md={12} lg={12} xl={12} xxl={12}
-              className="flex justify-center items-center h-full"
-            >
-              <img src={logo_tricuepro} alt="Logo" className='w-[80%]' />
-            </Col>
-            <Col
-              xs={12} md={12} lg={12} xl={12} xxl={12}
-              className="flex justify-center items-center h-full"
-            >
-              <Form
-                name="normal_login"
-                className="redForm border border-primaryRed shadow-lg shadow-secondaryRed"
-                initialValues={{ remember: true }}
-              // onFinish={onFinish}
-              >
-                <Title className='titleRedPrimary'>
-                  ¡Iniciemos!
-                </Title>
-                <Form.Item
-                  name="username"
-                  type="text"
-                  className="form-item mt-8"
-                  rules={[{ required: true, message: 'Por favor ingrese su nombre de usuario!' }]}
+    <div>
+      {loading ? (
+        <Loading /> // Mostrar el componente Loading
+      ) : (
+        <div>
+          <Particle />
+          <div>
+            <div className="full-view">
+              <Row className="h-svh">
+                <Col
+                  xs={12} md={12} lg={12} xl={12} xxl={12}
+                  className="flex justify-center items-center h-full"
                 >
-                  <Input
-                    placeholder="Nombre de usuario"
-                    addonBefore={<FaUserAlt className="site-form-item-icon text-primaryRed" />}
-                    size='large'
-                  />
-                </Form.Item>
-
-                <Form.Item
-                  name="password"
-                  rules={[{ required: true, message: 'Por favor ingrese su contraseña!' }]}
+                  <img src={logo_tricuepro} alt="Logo" className='w-[80%]' />
+                </Col>
+                <Col
+                  xs={12} md={12} lg={12} xl={12} xxl={12}
+                  className="flex justify-center items-center h-full"
                 >
-                  <Input.Password
-                    size='large'
-                    placeholder="Contraseña"
-                    addonBefore={<FaLock className="site-form-item-icon text-primaryRed" />}
-                  />
-                </Form.Item>
-
-                <div className='text-left mt-8'>
-                  <a
-                    // href="https://cuenta.dadep.gov.co/forgotten"
-                    className='text-primaryRed font-bold hover:underline'
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Form
+                    name="normal_login"
+                    className="redForm border border-primaryRed shadow-lg shadow-secondaryRed"
+                    initialValues={{ remember: true }}
+                  // onFinish={onFinish}
                   >
-                    ¿Olvidó su contraseña?
-                  </a>
-                </div>
+                    <Title className='titleRedPrimary'>
+                      ¡Iniciemos!
+                    </Title>
+                    <Form.Item
+                      name="username"
+                      type="text"
+                      className="form-item mt-8"
+                      rules={[{ required: true, message: 'Por favor ingrese su nombre de usuario!' }]}
+                    >
+                      <Input
+                        placeholder="Nombre de usuario"
+                        addonBefore={<FaUserAlt className="site-form-item-icon text-primaryRed" />}
+                        size='large'
+                      />
+                    </Form.Item>
 
-                <Form.Item className='text-center mt-5'>
-                  <Button type='primary' htmlType="submit" className="mt-4" size='large'>
-                    Iniciar sesión
-                  </Button>
-                </Form.Item>
-              </Form>
-            </Col>
-          </Row>
-          {/* <Footer /> */}
-        </div>
-      </div>
-    </>
+                    <Form.Item
+                      name="password"
+                      rules={[{ required: true, message: 'Por favor ingrese su contraseña!' }]}
+                    >
+                      <Input.Password
+                        size='large'
+                        placeholder="Contraseña"
+                        addonBefore={<FaLock className="site-form-item-icon text-primaryRed" />}
+                      />
+                    </Form.Item>
+
+                    <div className='text-left mt-8'>
+                      <a
+                        className='text-primaryRed font-bold hover:underline'
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        ¿Olvidó su contraseña?
+                      </a>
+                    </div>
+
+                    <Form.Item className='text-center mt-5'>
+                      <Button type='primary' htmlType="submit" className="mt-4" size='large' onClick={handleLogin}>
+                        Iniciar sesión
+                      </Button>
+                    </Form.Item>
+                  </Form>
+                </Col>
+              </Row>
+              {/* <Footer /> */}
+            </div>
+          </div>
+        </div>)}
+    </div>
   );
 };
 
