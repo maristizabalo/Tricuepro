@@ -11,6 +11,7 @@ import AdminDashboard from "./Dashboard";
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import Loading from "./components/layout/Loading";
+import Home from "./Home";
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
       <Suspense fallback={<Loading />} >
         <Router> {/* Aquí envolvemos la aplicación en el enrutador */}
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<AdminDashboard />}>
               <Route index element={<Navigate to="inicio" />} />
               <Route path="inicio" element={<Inicio />} />
