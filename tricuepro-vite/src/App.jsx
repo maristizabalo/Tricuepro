@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom"; // Importa Navigate
+import { Routes, Route, Navigate } from "react-router-dom"; 
 import Login from "./Login";
 import Inicio from "./pages/Inicio";
 import GestionMesas from "./pages/GestionMesas";
