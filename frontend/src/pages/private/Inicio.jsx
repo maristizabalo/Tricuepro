@@ -11,7 +11,7 @@ const Inicio = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        🌟 Bienvenido a <span className="text-red-500">TriCue Pro</span>
+        🌟 Bienvenido a <span className="text-red-500">KrocoBilliards</span>
       </motion.h1>
 
       {/* Subtítulo */}
@@ -45,7 +45,7 @@ const Inicio = () => {
             billares de 3 bandas.
           </p>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-            Con TriCue Pro, los propietarios de billares pueden maximizar su
+            Con KrocoBilliards, los propietarios de billares pueden maximizar su
             rentabilidad y ofrecer una experiencia inigualable a sus clientes.
           </p>
         </motion.div>

@@ -12,21 +12,21 @@ const Navbar = () => {
     };
 
     return (
-        <div className={`${isDarkMode ? 'bg-black' : 'bg-white'} text-gray-200`}>
+        <div className={`${isDarkMode ? 'bg-slate-900' : 'bg-white'} text-gray-200`}>
             <nav className="flex items-center justify-between px-6 py-4 shadow-md">
 
                 {/* seccion par amanejar el logo */}
                 <div className="flex items-center gap-4">
-                    <img src={logov6} alt="Logo" width={100} className="rounded-md" />
+                    <img src={logov6} alt="Logo" width={150} className="rounded-md" />
                 </div>
 
                 {/* seccion de botones de navegacion */}
                 <div className="flex items-center gap-6">
-                    <Button type='dashed'>Inicio</Button>
-                    <Button type='dashed'>Repetcion</Button>
-                    <Button type='dashed'>Servicio POS</Button>
-                    <Button type='dashed'>Contactanos</Button>
-                    <Button type="dashed">Solicitar demo</Button>
+                    <Button >Inicio</Button>
+                    <Button >Repetcion</Button>
+                    <Button >Servicio POS</Button>
+                    <Button >Contactanos</Button>
+                    <Button >Solicitar demo</Button>
 
                     <Button type="primary" className="rounded-full">
                         <a href="/login">

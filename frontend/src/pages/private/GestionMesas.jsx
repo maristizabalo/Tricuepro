@@ -161,7 +161,7 @@ const GestionMesas = () => {
 
       {/* Pantalla de cronómetro */}
       {cronometroMesa && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center">
+        <div className="fixed inset-0 bg-slate-900 bg-opacity-80 flex items-center justify-center">
           <div className="bg-gray-700 p-6 rounded-lg text-center">
             <h2 className="text-4xl font-bold text-yellow-400 mb-4">
               Mesa {cronometroMesa} - Tiempo Restante
@@ -181,7 +181,7 @@ const GestionMesas = () => {
 
       {/* Pantalla de mesa ampliada */}
       {mesaAmpliada && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center">
+        <div className="fixed inset-0 bg-slate-900 bg-opacity-80 flex items-center justify-center">
           <div className="bg-gray-700 p-6 rounded-lg text-center">
             <h2 className="text-4xl font-bold text-yellow-400 mb-4">
               Mesa {mesaAmpliada} - Vista Ampliada

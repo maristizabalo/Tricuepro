@@ -18,7 +18,7 @@ const Home = () => {
     //   style={{ backgroundImage: `url(${fondoHome})` }}
     // >
     //   {/* Overlay para mayor contraste */}
-    //   <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+    //   <div className="absolute inset-0 bg-slate-900 bg-opacity-50"></div>
 
     //   {/* Contenido principal */}
     //   <div className="relative z-10 h-full flex flex-col justify-between">
@@ -84,7 +84,7 @@ const Home = () => {
     //   </div>
     // </div>
 
-    <div className='bg-black h-screen'>
+    <div className='bg-slate-900 h-screen'>
       <Navbar />
       <Row className='mt-8 px-14'>
         {/* Columna izquierda: Texto degradado */}

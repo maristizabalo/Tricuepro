@@ -18,7 +18,7 @@ const AdminDashboard = () => {
     <div className="relative flex flex-col h-screen bg-gradient-to-b from-gray-800 to-gray-900 text-white">
       {/* Header */}
       <header className="w-full bg-green-700 shadow-lg p-4 flex justify-between items-center">
-        <h1 className="text-3xl font-bold">🎱 TriCue Pro - Panel de Administración</h1>
+        <h1 className="text-3xl font-bold">🎱 KrocoBilliards - Panel de Administración</h1>
         <button className="flex items-center bg-red-600 hover:bg-red-700 py-2 px-4 rounded-lg text-white font-semibold">
           <span className="material-icons-outlined mr-2">logout</span> Cerrar Sesión
         </button>
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
 
       {/* Footer */}
       <footer className="w-full bg-gray-900 py-4 text-center text-sm text-gray-400">
-        © 2025 TriCue Pro - Todos los derechos reservados
+        © 2025 KrocoBilliards - Todos los derechos reservados
       </footer>
     </div>
   );

@@ -21,7 +21,7 @@ const Licencia = () => {
 
   return (
     <div className="flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-lg mt-4 space-y-6">
-      <h2 className="text-3xl font-extrabold text-yellow-400 mb-4">🏆 Licencia Activa - TriCue Pro</h2>
+      <h2 className="text-3xl font-extrabold text-yellow-400 mb-4">🏆 Licencia Activa - KrocoBilliards</h2>
 
       {/* Sección de Información de Licencia */}
       <div className="bg-gray-700 p-6 rounded-lg shadow-md w-full max-w-lg">
