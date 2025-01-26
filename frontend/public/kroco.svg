@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="200" height="200">
+  <!-- Body of the crocodile -->
+  <path d="M50 100 Q30 70, 60 50 Q100 20, 140 50 Q170 70, 150 100 Q130 130, 100 130 Q70 130, 50 100Z" fill="#76c043" />
+
+  <!-- Eye -->
+  <circle cx="80" cy="70" r="5" fill="#fff" />
+  <circle cx="80" cy="70" r="2" fill="#000" />
+
+  <!-- Bigote -->
+  <path d="M75 85 Q70 80, 65 85" stroke="#000" stroke-width="1.5" fill="none" />
+  <path d="M85 85 Q90 80, 95 85" stroke="#000" stroke-width="1.5" fill="none" />
+
+  <!-- Cue Stick -->
+  <rect x="100" y="110" width="60" height="5" fill="#c89f77" transform="rotate(-15 100 110)" />
+
+  <!-- Thumb Up -->
+  <path d="M50 100 Q45 90, 50 80 Q60 75, 70 80 Q60 85, 65 100 Z" fill="#76c043" />
+
+  <!-- Tail -->
+  <path d="M140 120 Q160 140, 180 130 Q160 110, 140 120Z" fill="#76c043" />
+</svg>

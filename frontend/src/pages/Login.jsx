@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Particle from "../components/layout/Particle";
 import { Row, Col, Form, Input, Button, Typography } from "antd";
 import { FaLock, FaUserAlt } from "react-icons/fa";
 import Title from "antd/es/typography/Title";
-import logo_tricuepro from "./assets/images/logo_v1_not_background.png";
+import logo_kroco from "../assets/images/logo_v7-nobackground.png";
+
+// componentes
 import Loading from "../components/layout/Loading";
+import Particle from "../components/layout/Particle";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -20,15 +22,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
+    <div className="min-h-screen text-white relative">
       {loading ? (
         <Loading />
       ) : (
         <div>
           <Particle />
           <div className="relative">
-            {/* Taco de billar decorativo */}
-            <div className="absolute top-8 left-8 w-2 h-96 bg-gradient-to-r from-yellow-500 to-brown-700 rounded-full transform rotate-[25deg] shadow-lg"></div>
 
             <Row className="h-screen">
               <Col
@@ -39,7 +39,7 @@ const Login = () => {
                 xxl={12}
                 className="flex justify-center items-center h-full"
               >
-                <img src={logo_tricuepro} alt="Logo" className="w-[80%]" />
+                <img src={logo_kroco} alt="Logo" className="w-[80%]" />
               </Col>
               <Col
                 xs={12}
