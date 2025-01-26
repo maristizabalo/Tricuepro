@@ -67,7 +67,7 @@ const Login = () => {
                       placeholder="Nombre de usuario"
                       addonBefore={<FaUserAlt className="text-red-500" />}
                       size="large"
-                      className="bg-gray-800 text-white border-none"
+                      className=" text-white border-none"
                     />
                   </Form.Item>
 
@@ -79,7 +79,7 @@ const Login = () => {
                       size="large"
                       placeholder="Contraseña"
                       addonBefore={<FaLock className="text-red-500" />}
-                      className="bg-gray-800 text-white border-none"
+                      className=" text-white border-none"
                     />
                   </Form.Item>
 
