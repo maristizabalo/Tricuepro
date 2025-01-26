@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Particle from "./components/layout/Particle";
+import Particle from "../components/layout/Particle";
 import { Row, Col, Form, Input, Button, Typography } from "antd";
 import { FaLock, FaUserAlt } from "react-icons/fa";
 import Title from "antd/es/typography/Title";
 import logo_tricuepro from "./assets/images/logo_v1_not_background.png";
-import Loading from "./components/layout/Loading";
+import Loading from "../components/layout/Loading";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from 'antd';
-import fondoHome from './assets/images/fondoHome.png'; // Importa la imagen correctamente
+import fondoHome from '../assets/images/fondoHome.png';
 
 const Home = () => {
   return (
     <div
       className="h-screen bg-cover bg-center relative"
-      style={{ backgroundImage: `url(${fondoHome})` }} // Utiliza la imagen importada
+      style={{ backgroundImage: `url(${fondoHome})` }}
     >
       {/* Overlay para mayor contraste */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>

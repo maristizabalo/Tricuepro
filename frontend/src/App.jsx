@@ -1,17 +1,19 @@
-import React, { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom"; 
-import Login from "./Login";
-import Inicio from "./pages/Inicio";
-import GestionMesas from "./pages/GestionMesas";
-import Configuracion from "./pages/Configuracion";
-import GestionProductos from "./pages/GestionProductos";
-import MetodosPago from "./pages/MetodosPago";
-import Licencia from "./pages/Licencia";
-import AdminDashboard from "./Dashboard";
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import Loading from "./components/layout/Loading";
-import Home from "./Home";
+
+// Importaciond e componentes con lazy loading para evitar la carga de todos los componentes al inicio de la aplicación. Se utiliza el componente Loading para mostrar un spinner mientras se cargan los componentes.
+const Home = lazy(() => import('./pages/Home'));
+const Login = lazy(() => import('./pages/Login'));
+const AdminDashboard = lazy(() => import('./pages/private/Dashboard'));
+const Inicio = lazy(() => import('./pages/private/Inicio'));
+const GestionMesas = lazy(() => import('./pages/private/GestionMesas'));
+const Configuracion = lazy(() => import('./pages/private/Configuracion'));
+const GestionProductos = lazy(() => import('./pages/private/GestionProductos'));
+const MetodosPago = lazy(() => import('./pages/private/MetodosPago'));
+const Licencia = lazy(() => import('./pages/private/Licencia'));
 
 const App = () => {
   return (
