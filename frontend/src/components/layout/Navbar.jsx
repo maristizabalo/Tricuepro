@@ -22,11 +22,11 @@ const Navbar = () => {
 
                 {/* seccion de botones de navegacion */}
                 <div className="flex items-center gap-6">
-                    <Button >Inicio</Button>
-                    <Button >Repetcion</Button>
-                    <Button >Servicio POS</Button>
-                    <Button >Contactanos</Button>
-                    <Button >Solicitar demo</Button>
+                    <Button type='link' className='text-white text-lg underline font-extrabold'>Inicio</Button>
+                    <Button type='link' className='text-white text-lg underline font-extrabold'>Repetcion</Button>
+                    <Button type='link' className='text-white text-lg underline font-extrabold'>Servicio POS</Button>
+                    <Button type='link' className='text-white text-lg underline font-extrabold'>Contactanos</Button>
+                    <Button type='link' className='text-white text-lg underline font-extrabold'>Solicitar demo</Button>
 
                     <Button type="primary" className="rounded-full">
                         <a href="/login">
