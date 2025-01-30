@@ -2,13 +2,20 @@ import React, { useState } from 'react';
 import { Button } from 'antd';
 import { UserOutlined, BulbOutlined, MoonOutlined } from '@ant-design/icons';
 import logov6 from '../../assets/images/logo_v7-nobackground.png';
+import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
     const [isDarkMode, setIsDarkMode] = useState(true);
 
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
+    };
+
+    const handleLogin = () => {
+        navigate("/login");
     };
 
     return (
@@ -28,10 +35,8 @@ const Navbar = () => {
                     <Button type='link' className='text-white text-lg underline font-extrabold'>Contactanos</Button>
                     <Button type='link' className='text-white text-lg underline font-extrabold'>Solicitar demo</Button>
 
-                    <Button type="primary" className="rounded-full">
-                        <a href="/login">
+                    <Button type="primary" onClick={handleLogin} className="rounded-full">
                             <UserOutlined />
-                        </a>
                     </Button>
 
                     <Button onClick={toggleTheme} className="bg-yellow-500 rounded-full">
