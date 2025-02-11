@@ -1,10 +1,10 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom"; 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import Loading from "./components/layout/Loading";
 
-// Importaciond e componentes con lazy loading para evitar la carga de todos los componentes al inicio de la aplicación. Se utiliza el componente Loading para mostrar un spinner mientras se cargan los componentes.
+// Importación de componentes con lazy loading
 const Home = lazy(() => import('./pages/Home'));
 const Login = lazy(() => import('./pages/Login'));
 const AdminDashboard = lazy(() => import('./pages/private/Dashboard'));
@@ -16,6 +16,20 @@ const MetodosPago = lazy(() => import('./pages/private/MetodosPago'));
 const Licencia = lazy(() => import('./pages/private/Licencia'));
 
 const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
+
   return (
     <ConfigProvider
       theme={{
@@ -25,24 +39,26 @@ const App = () => {
       }}
     >
       <Suspense fallback={<Loading />} >
-        <Router> {/* Aquí envolvemos la aplicación en el enrutador */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<AdminDashboard />}>
-              <Route index element={<Navigate to="inicio" />} />
-              <Route path="inicio" element={<Inicio />} />
-              <Route path="gestion-mesas" element={<GestionMesas />} />
-              <Route path="configuracion" element={<Configuracion />} />
-              <Route path="gestion-productos" element={<GestionProductos />} />
-              <Route path="metodos-pago" element={<MetodosPago />} />
-              <Route path="licencia" element={<Licencia />} />
-            </Route>
-          </Routes>
+        <Router>
+          {/* Envolvemos toda la aplicación en un div que cambia de color */}
+          <div className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} min-h-screen`}>
+            <Routes>
+              <Route path="/" element={<Home isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<AdminDashboard />}>
+                <Route index element={<Navigate to="inicio" />} />
+                <Route path="inicio" element={<Inicio />} />
+                <Route path="gestion-mesas" element={<GestionMesas />} />
+                <Route path="configuracion" element={<Configuracion />} />
+                <Route path="gestion-productos" element={<GestionProductos />} />
+                <Route path="metodos-pago" element={<MetodosPago />} />
+                <Route path="licencia" element={<Licencia />} />
+              </Route>
+            </Routes>
+          </div>
         </Router>
       </Suspense>
     </ConfigProvider>
-
   );
 };
 
