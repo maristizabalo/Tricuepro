@@ -14,6 +14,8 @@ const Configuracion = lazy(() => import('./pages/private/Configuracion'));
 const GestionProductos = lazy(() => import('./pages/private/GestionProductos'));
 const MetodosPago = lazy(() => import('./pages/private/MetodosPago'));
 const Licencia = lazy(() => import('./pages/private/Licencia'));
+const SolicitarDemo = lazy(() => import("./pages/SolicitarDemo"));
+const Soporte = lazy(() => import("./pages/Soporte"));
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -38,9 +40,8 @@ const App = () => {
         },
       }}
     >
-      <Suspense fallback={<Loading />} >
+      <Suspense fallback={<Loading />}>
         <Router>
-          {/* Envolvemos toda la aplicación en un div que cambia de color */}
           <div className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} min-h-screen`}>
             <Routes>
               <Route path="/" element={<Home isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
@@ -54,6 +55,9 @@ const App = () => {
                 <Route path="metodos-pago" element={<MetodosPago />} />
                 <Route path="licencia" element={<Licencia />} />
               </Route>
+
+              <Route path="/solicitar-demo" element={<SolicitarDemo />} />
+              <Route path="/soporte" element={<Soporte />} />
             </Routes>
           </div>
         </Router>

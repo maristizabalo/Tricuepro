@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Card, Carousel, Col, Divider, Row, Rate, Input, Button } from 'antd';
 import { FaCoins, FaCashRegister, FaVideo, FaChartBar, FaCogs, FaFacebook, FaWhatsapp } from 'react-icons/fa';  
 import sistemaPOS from '../assets/images/sistema_pos.webp';
-import repeticion from '../assets/images/repeticion_jugada.webp';
 import enProduccion from '../assets/images/funcionamiento_total.webp';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
@@ -10,7 +9,6 @@ import Footer from '../components/layout/Footer';
 const Home = ({ isDarkMode, setIsDarkMode }) => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(3);
-  
 
   const handleCommentChange = (e) => setComment(e.target.value);
   const handleRatingChange = (value) => setRating(value);
@@ -21,7 +19,7 @@ const Home = ({ isDarkMode, setIsDarkMode }) => {
         <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
 
         <Row className='my-12 px-14'>
-         {/* Columna derecha: Carrusel con imágenes */}
+          {/* Columna derecha: Carrusel con imágenes */}
           <Col span={12} className="items-center justify-center text-center">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-red-600 via-red-700 to-white text-transparent bg-clip-text text-center mt-16">
               KrocoBilliard, el futuro del billar<br />
@@ -38,9 +36,6 @@ const Home = ({ isDarkMode, setIsDarkMode }) => {
                 <Carousel autoplay>
                   <div>
                     <img src={sistemaPOS} alt="Billiard Image 2" />
-                  </div>
-                  <div>
-                    <img src={repeticion} alt="Billiard Image 3" />
                   </div>
                   <div>
                     <img src={enProduccion} alt="Billiard Image 3" />
