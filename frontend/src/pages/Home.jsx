@@ -6,7 +6,7 @@ import enProduccion from '../assets/images/funcionamiento_total.webp';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 
-const Home = ({ isDarkMode, setIsDarkMode }) => {
+const Home = () => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(3);
 
@@ -14,9 +14,9 @@ const Home = ({ isDarkMode, setIsDarkMode }) => {
   const handleRatingChange = (value) => setRating(value);
 
   return (
-    <div className={`${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} h-full`}>
+    <div className="h-full">
       <div className="mt-48">
-        <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <Navbar />
 
         <Row className='my-12 px-14'>
           {/* Columna derecha: Carrusel con imágenes */}
@@ -65,7 +65,7 @@ const Home = ({ isDarkMode, setIsDarkMode }) => {
               }
             >
               <h3 className="text-xl font-semibold">Administración</h3>
-              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p >
                 Gestiona las operaciones diarias del billar con herramientas diseñadas para optimizar el rendimiento y facilitar el control.
               </p>
             </Card>
@@ -82,7 +82,7 @@ const Home = ({ isDarkMode, setIsDarkMode }) => {
               }
             >
               <h3 className="text-xl font-semibold">Sistema POS</h3>
-              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p >
                 Facilita la venta de servicios y productos con un sistema de punto de venta intuitivo y confiable.
               </p>
             </Card>
@@ -99,7 +99,7 @@ const Home = ({ isDarkMode, setIsDarkMode }) => {
               }
             >
               <h3 className="text-xl font-semibold">Repetición al Instante</h3>
-              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p >
                 Revive las mejores jugadas al instante con nuestro sistema avanzado de repetición en video.
               </p>
             </Card>
@@ -116,7 +116,7 @@ const Home = ({ isDarkMode, setIsDarkMode }) => {
               }
             >
               <h3 className="text-xl font-semibold">Análisis de Datos</h3>
-              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p >
                 Accede a informes detallados para mejorar el rendimiento y la gestión de tu negocio de billar con nuestro sistema de análisis.
               </p>
             </Card>
@@ -133,7 +133,7 @@ const Home = ({ isDarkMode, setIsDarkMode }) => {
               }
             >
               <h3 className="text-xl font-semibold">Configuración Personalizada</h3>
-              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p >
                 Personaliza y ajusta las funciones del sistema para adaptarlas a las necesidades específicas de tu billar.
               </p>
             </Card>

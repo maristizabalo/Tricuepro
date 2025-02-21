@@ -18,19 +18,6 @@ const SolicitarDemo = lazy(() => import("./pages/SolicitarDemo"));
 const Soporte = lazy(() => import("./pages/Soporte"));
 
 const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDarkMode]);
 
   return (
     <ConfigProvider
@@ -42,9 +29,9 @@ const App = () => {
     >
       <Suspense fallback={<Loading />}>
         <Router>
-          <div className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} min-h-screen`}>
+          <div className="min-h-screen ">
             <Routes>
-              <Route path="/" element={<Home isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+              <Route path="/" element={<Home/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<AdminDashboard />}>
                 <Route index element={<Navigate to="inicio" />} />
