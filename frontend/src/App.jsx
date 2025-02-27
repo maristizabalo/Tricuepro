@@ -23,13 +23,13 @@ const App = () => {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#E80B2C',
+          colorPrimary: '#6CC426',
         },
       }}
     >
       <Suspense fallback={<Loading />}>
         <Router>
-          <div className="min-h-screen ">
+          <div className="min-h-screen">
             <Routes>
               <Route path="/" element={<Home/>} />
               <Route path="/login" element={<Login />} />
