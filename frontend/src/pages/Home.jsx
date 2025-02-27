@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 // import enProduccion from '../assets/images/funcionamiento_total.webp';
 // import Footer from '../components/layout/Footer';
 import Navbar from '../components/Home/Navbar';
+import HeroSection from '../components/Home/HeroSection';
 
 const Home = () => {
   // const [comment, setComment] = useState("");
@@ -224,9 +225,9 @@ const Home = () => {
 
     <div className='bg-slate-100 dark:bg-neutral-900'>
       <Navbar />
-      <div className="max-w-7xl mx-auto pt-20 px-6">
-        {/* <HeroSection />
-        <FeatureSection />
+      <div className="max-w-7xl mx-auto pt-12 px-6">
+        <HeroSection />
+        {/* <FeatureSection />
         <Workflow />
         <ContactSection />
         <Footer /> */}

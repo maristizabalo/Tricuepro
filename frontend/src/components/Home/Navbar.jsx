@@ -62,13 +62,13 @@ const Navbar = () => {
                             <ThemeIcon />
                         </button>
                         <Link to="/login">
-                            <button className="bg-gradient-to-r from-yellow-700 to-[#1b5d3c] py-2 px-3 rounded-md text-lg font-extrabold hover:text-purple-700 transition-all duration-300">
+                            <button className="bg-gradient-to-r from-yellow-700 to-[#1b5d3c] text-neutral-900 dark:text-slate-100 py-2 px-3 rounded-md text-lg font-extrabold hover:text-purple-700 transition-all duration-300">
                                 Iniciar Sesión
                             </button>
                         </Link>
                     </div>
                     <div className="lg:hidden md:flex flex-col justify-end">
-                        <button onClick={toggleNavbar}>
+                        <button onClick={toggleNavbar} className="text-neutral-900 dark:text-slate-100">
                             {mobileDrawerOpen ? <X /> : <Menu />}
                         </button>
                     </div>
@@ -103,7 +103,7 @@ const Navbar = () => {
                                 <ThemeIcon />
                             </button>
                             <Link to="/login">
-                                <button className="py-2 px-3 rounded-md bg-gradient-to-r from-yellow-700 to-[#1b5d3c] text-lg font-extrabold hover:text-purple-700 transition-all duration-300">
+                                <button className="py-2 px-3 rounded-md bg-gradient-to-r from-yellow-700 to-[#1b5d3c] text-neutral-900 dark:text-slate-100 text-lg font-extrabold hover:text-purple-700 transition-all duration-300">
                                     Iniciar Sesión
                                 </button>
                             </Link>
