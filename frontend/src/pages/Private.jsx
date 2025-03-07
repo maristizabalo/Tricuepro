@@ -1,7 +1,7 @@
 import { lazy, useEffect, useState } from 'react';
 // import AppLayout from '../components/AppLayout';
 import { useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import LockPage from './LockPage';
 import { ROLES } from '../utils/constants';
 import Loading from '../components/layout/Loading';
@@ -31,7 +31,7 @@ const Private = () => {
 
     // Definir las rutas disponibles según el rol del usuario
     let routes;
-    if (userRole === ROLES.ADMIN) {
+    if (userRole === ROLES.PROPIETARIO || userRole === ROLES.ADMIN ) {
         routes = (
             <Route path="/dashboard" element={<AdminDashboard />}>
                 <Route index element={<Navigate to="inicio" />} />

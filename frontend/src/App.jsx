@@ -14,36 +14,7 @@ import Login from "./pages/Login";
 const App = () => {
 
   return (
-    // <ConfigProvider
-    //   theme={{
-    //     token: {
-    //       colorPrimary: '#6CC426',
-    //     },
-    //   }}
-    // >
-    //   <Suspense fallback={<Loading />}>
-    //     <Router>
-    //       <div className="min-h-screen">
-    //         <Routes>
-    //           <Route path="/" element={<Home/>} />
-    //           <Route path="/login" element={<Login />} />
-    //           <Route path="/dashboard" element={<AdminDashboard />}>
-    //             <Route index element={<Navigate to="inicio" />} />
-    //             <Route path="inicio" element={<Inicio />} />
-    //             <Route path="gestion-mesas" element={<GestionMesas />} />
-    //             <Route path="configuracion" element={<Configuracion />} />
-    //             <Route path="gestion-productos" element={<GestionProductos />} />
-    //             <Route path="metodos-pago" element={<MetodosPago />} />
-    //             <Route path="licencia" element={<Licencia />} />
-    //           </Route>
-
-    //           <Route path="/solicitar-demo" element={<SolicitarDemo />} />
-    //           <Route path="/soporte" element={<Soporte />} />
-    //         </Routes>
-    //       </div>
-    //     </Router>
-    //   </Suspense>
-    // </ConfigProvider>
+    
     <ConfigProvider
       theme={{
         token: {

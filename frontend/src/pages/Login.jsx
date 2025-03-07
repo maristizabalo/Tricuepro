@@ -42,7 +42,10 @@ const Login = () => {
       // Determinar la ruta de redireccionamiento según el rol del usuario
       if (user.rol === ROLES.JUGADOR) {
         navigate('/private/lock');
-      } else if (user.rol === ROLES.ADMIN) {
+      } else if (user.rol === ROLES.PROPIETARIO) {
+        navigate('/private/inicio');
+      }
+      else if (user.rol === ROLES.ADMIN) {
         navigate('/private/inicio');
       }
       // } else if (user.rol === ROLES.GERENCIA) {
