@@ -46,3 +46,10 @@ export const features = [
       "Kroco Billar se mantiene en constante evolución con actualizaciones automáticas que mejoran la estabilidad, seguridad y funciones innovadoras para una mejor experiencia.",
   },
 ];
+
+export const ROLES = {
+    NONE: 0,
+    JUGADOR: 1,
+    PROPIETARIO: 2,
+    ADMIN: 3,
+}

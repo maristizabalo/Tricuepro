@@ -1,115 +1,146 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Row, Col, Form, Input, Button, Typography } from "antd";
 import { FaLock, FaUserAlt } from "react-icons/fa";
 import Title from "antd/es/typography/Title";
 import logo_kroco from "../assets/images/logo_v7-nobackground.png";
-
-// componentes
-import Loading from "../components/layout/Loading";
+import { login } from '../services/authServices';
+import { jwtDecode } from 'jwt-decode';
 import Particle from "../components/layout/Particle";
+import { useDispatch } from "react-redux";
+import { createUser } from "../redux/states/user";
+import { ROLES } from "../utils/constants";
 
 const Login = () => {
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const location = useLocation();
   const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+  const session = queryParams.get('session');
+  // const [formRegisterData, setFormRegisterData] = useState({
+  //   username: '',
+  //   password: '',
+  //   nombre: ''
+  // });
+  const [loginMode, setLoginMode] = useState(true)
 
-  const handleLogin = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      navigate("/dashboard");
-    }, 1600); 
+  useEffect(() => {
+    if (session === 'expired') {
+      // openNotificationWithIcon(notification, 'warning', 'Su sesión ha expirado, por favor vuelva a iniciar sesión.', '', 5);
+    }
+  }, [session]);
+
+  const onFinish = async (values) => {
+    try {
+      const result = await login(values);
+      const user = jwtDecode(result.access);
+      user['auth_tokens'] = result;
+      dispatch(createUser(user));
+      // openNotificationWithIcon(notification, 'success', 'Inicio de sesión exitoso', '', 4);
+      console.log("notification succes")
+
+      // Determinar la ruta de redireccionamiento según el rol del usuario
+      if (user.rol === ROLES.JUGADOR) {
+        navigate('/private/lock');
+      } else if (user.rol === ROLES.ADMIN) {
+        navigate('/private/inicio');
+      }
+      // } else if (user.rol === ROLES.GERENCIA) {
+      //   navigate('/private/estadisticas');
+      // } else if (user.rol === ROLES.BARRIDO) {
+      //   navigate('/private/barrido');
+      // }
+    } catch (error) {
+      // openNotificationWithIcon(notification, 'error', 'Verifica tu usuario y clave, si el error continúa contacta con el administrador.', '', 4);
+      console.log("error", error)
+    }
   };
 
   return (
     <div className="min-h-screen text-white relative">
-      {loading ? (
-        <Loading />
-      ) : (
-        <div>
-          <Particle />
-          <div className="relative">
+      <div>
+        <Particle />
+        <div className="relative">
 
-            <Row className="h-screen">
-              <Col
-                xs={12}
-                md={12}
-                lg={12}
-                xl={12}
-                xxl={12}
-                className="flex justify-center items-center h-full"
+          <Row className="h-screen">
+            <Col
+              xs={12}
+              md={12}
+              lg={12}
+              xl={12}
+              xxl={12}
+              className="flex justify-center items-center h-full"
+            >
+              <img src={logo_kroco} alt="Logo" className="w-[80%]" />
+            </Col>
+            <Col
+              xs={12}
+              md={12}
+              lg={12}
+              xl={12}
+              xxl={12}
+              className="flex justify-center items-center h-full"
+            >
+              <Form
+                name="normal_login"
+                className="redForm border border-primaryRed shadow-lg shadow-secondaryRed p-8 rounded-lg bg-gray-900"
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
               >
-                <img src={logo_kroco} alt="Logo" className="w-[80%]" />
-              </Col>
-              <Col
-                xs={12}
-                md={12}
-                lg={12}
-                xl={12}
-                xxl={12}
-                className="flex justify-center items-center h-full"
-              >
-                <Form
-                  name="normal_login"
-                  className="redForm border border-primaryRed shadow-lg shadow-secondaryRed p-8 rounded-lg bg-gray-900"
-                  initialValues={{ remember: true }}
+                <Title className="text-primary-2 text-3xl mb-4 text-center">
+                  ¡Iniciemos!
+                </Title>
+                <Form.Item
+                  name="username"
+                  type="text"
+                  className="form-item mt-4"
+                  rules={[{ required: true, message: "Por favor ingrese su nombre de usuario!" }]}
                 >
-                  <Title className="text-primary-2 text-3xl mb-4 text-center">
-                    ¡Iniciemos!
-                  </Title>
-                  <Form.Item
-                    name="username"
-                    type="text"
-                    className="form-item mt-4"
-                    rules={[{ required: true, message: "Por favor ingrese su nombre de usuario!" }]}
+                  <Input
+                    placeholder="Nombre de usuario"
+                    addonBefore={<FaUserAlt className="text-primary-2" />}
+                    size="large"
+                    className=" text-white border-none"
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="password"
+                  rules={[{ required: true, message: "Por favor ingrese su contraseña!" }]}
+                >
+                  <Input.Password
+                    size="large"
+                    placeholder="Contraseña"
+                    addonBefore={<FaLock className="text-primary-2" />}
+                    className=" text-white border-none"
+                  />
+                </Form.Item>
+
+                <div className="text-left mt-4">
+                  <a
+                    className="text-primary-2 font-bold hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <Input
-                      placeholder="Nombre de usuario"
-                      addonBefore={<FaUserAlt className="text-primary-2" />}
-                      size="large"
-                      className=" text-white border-none"
-                    />
-                  </Form.Item>
+                    ¿Olvidó su contraseña?
+                  </a>
+                </div>
 
-                  <Form.Item
-                    name="password"
-                    rules={[{ required: true, message: "Por favor ingrese su contraseña!" }]}
+                <Form.Item className="text-center mt-6">
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="mt-4 bg-primary-2 hover:bg-primary-2"
+                    size="large"
                   >
-                    <Input.Password
-                      size="large"
-                      placeholder="Contraseña"
-                      addonBefore={<FaLock className="text-primary-2" />}
-                      className=" text-white border-none"
-                    />
-                  </Form.Item>
-
-                  <div className="text-left mt-4">
-                    <a
-                      className="text-primary-2 font-bold hover:underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ¿Olvidó su contraseña?
-                    </a>
-                  </div>
-
-                  <Form.Item className="text-center mt-6">
-                    <Button
-                      type="primary"
-                      htmlType="submit"
-                      className="mt-4 bg-primary-2 hover:bg-primary-2"
-                      size="large"
-                      onClick={handleLogin}
-                    >
-                      Iniciar sesión
-                    </Button>
-                  </Form.Item>
-                </Form>
-              </Col>
-            </Row>
-          </div>
+                    Iniciar sesión
+                  </Button>
+                </Form.Item>
+              </Form>
+            </Col>
+          </Row>
         </div>
-      )}
+      </div>
     </div>
   );
 };
