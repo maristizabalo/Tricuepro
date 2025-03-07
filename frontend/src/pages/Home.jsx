@@ -6,6 +6,8 @@ import React, { useEffect, useState } from 'react';
 // import Footer from '../components/layout/Footer';
 import Navbar from '../components/Home/Navbar';
 import HeroSection from '../components/Home/HeroSection';
+import FeatureSection from '../components/Home/FeatureSection';
+import Footer from '../components/layout/Footer';
 
 const Home = () => {
   // const [comment, setComment] = useState("");
@@ -227,10 +229,8 @@ const Home = () => {
       <Navbar />
       <div className="max-w-7xl mx-auto pt-12 px-6">
         <HeroSection />
-        {/* <FeatureSection />
-        <Workflow />
-        <ContactSection />
-        <Footer /> */}
+        <FeatureSection />
+        <Footer /> 
       </div>
     </div>
   );

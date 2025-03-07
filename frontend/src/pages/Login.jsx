@@ -54,7 +54,7 @@ const Login = () => {
                   className="redForm border border-primaryRed shadow-lg shadow-secondaryRed p-8 rounded-lg bg-gray-900"
                   initialValues={{ remember: true }}
                 >
-                  <Title className="text-red-500 text-3xl mb-4 text-center">
+                  <Title className="text-primary-2 text-3xl mb-4 text-center">
                     ¡Iniciemos!
                   </Title>
                   <Form.Item
@@ -65,7 +65,7 @@ const Login = () => {
                   >
                     <Input
                       placeholder="Nombre de usuario"
-                      addonBefore={<FaUserAlt className="text-red-500" />}
+                      addonBefore={<FaUserAlt className="text-primary-2" />}
                       size="large"
                       className=" text-white border-none"
                     />
@@ -78,14 +78,14 @@ const Login = () => {
                     <Input.Password
                       size="large"
                       placeholder="Contraseña"
-                      addonBefore={<FaLock className="text-red-500" />}
+                      addonBefore={<FaLock className="text-primary-2" />}
                       className=" text-white border-none"
                     />
                   </Form.Item>
 
                   <div className="text-left mt-4">
                     <a
-                      className="text-red-500 font-bold hover:underline"
+                      className="text-primary-2 font-bold hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -97,7 +97,7 @@ const Login = () => {
                     <Button
                       type="primary"
                       htmlType="submit"
-                      className="mt-4 bg-red-500 hover:bg-red-600"
+                      className="mt-4 bg-primary-2 hover:bg-primary-2"
                       size="large"
                       onClick={handleLogin}
                     >

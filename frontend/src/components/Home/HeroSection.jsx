@@ -3,13 +3,13 @@ import img from "../../assets/images/img1.png";
 
 const HeroSection = () => {
     return (
-        <div id="inicio" className="lg:mt-0 border-b border-neutral-800 px-6 pb-12 bg-white dark:bg-neutral-900">
+        <div id="inicio" className="lg:mt-0 border-b border-neutral-800 px-6 pb-12 bg-slate-100 dark:bg-neutral-900">
             <Row gutter={[32, 32]}>
 
                 {/* Primera columna: Texto con SEO y formulario */}
                 <Col xs={24} md={12}>
-                    <h1 className="text-4xl sm:text-6xl lg:text-7xl text-center md:text-left tracking-wide text-neutral-900 dark:text-slate-100">
-                        <span className="bg-gradient-to-r from-yellow-700 to-[#1b5d3c] text-transparent bg-clip-text">
+                    <h1 className="font-semibold text-4xl sm:text-6xl lg:text-7xl text-center md:text-left tracking-wide text-neutral-900 dark:text-slate-100">
+                        <span className="bg-gradient-to-r from-primary-2 to-secondary-2 text-transparent bg-clip-text">
                             Software de Billar
                         </span>{" "}
                         con Tecnología Avanzada
@@ -31,7 +31,7 @@ const HeroSection = () => {
                         />
                         <Button
                             type="primary"
-                            className="bg-gradient-to-r from-yellow-700 to-[#1b5d3c] px-6 py-3 text-lg font-bold text-white dark:text-slate-100"
+                            className="bg-gradient-to-r from-primary-2 to-secondary-2 px-6 py-3 text-lg font-bold text-white dark:text-slate-100 hover:bg-secondary-1"
                         >
                             Ser Contactado
                         </Button>
@@ -39,12 +39,14 @@ const HeroSection = () => {
                 </Col>
 
                 {/* Segunda columna: Imagen representativa */}
-                <Col xs={24} md={12} className="flex justify-center">
-                    <img
-                        src={img}
-                        alt="Software de billar inteligente"
-                        className="max-w-full h-auto rounded-lg shadow-lg dark:shadow-[#1b5d3c]"
-                    />
+                <Col xs={24} md={12} className="flex justify-center items-center h-full w-full">
+                    <div className="flex justify-center items-center">
+                        <img
+                            src={img}
+                            alt="Software de billar inteligente"
+                            className="h-auto max-w-full rounded-lg shadow-lg dark:shadow-[#1b5d3c]"
+                        />
+                    </div>
                 </Col>
             </Row>
         </div>

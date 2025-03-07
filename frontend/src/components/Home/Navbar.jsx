@@ -39,7 +39,7 @@ const Navbar = () => {
                     <ul className="hidden lg:flex ml-14 space-x-12">
                         {navItems.map((item, index) => (
                             <li key={index} className="nav-item flex items-center space-x-2">
-                                <p className="text-neutral-900 dark:text-slate-100 cursor-pointer text-lg font-extrabold hover:text-purple-700 transition-all duration-300">
+                                <p className="text-neutral-900 dark:text-slate-100 cursor-pointer text-lg font-extrabold hover:text-secondary transition-all duration-300">
                                     {item.icon}
                                 </p>
                                 <LinkScroll
@@ -49,7 +49,7 @@ const Navbar = () => {
                                     smooth={true}
                                     offset={-110}
                                     duration={500}
-                                    className=" text-neutral-900 dark:text-slate-100 cursor-pointer text-lg font-extrabold hover:text-purple-700 transition-all duration-300"
+                                    className=" text-neutral-900 dark:text-slate-100 cursor-pointer text-lg font-extrabold hover:text-secondary transition-all duration-300"
                                     onClick={() => setMobileDrawerOpen(false)}
                                 >
                                     {item.label}
@@ -58,11 +58,11 @@ const Navbar = () => {
                         ))}
                     </ul>
                     <div className="hidden lg:flex justify-center space-x-6 items-center">
-                        <button onClick={handleChangeTheme} className="text-xl py-2 px-3 text-neutral-900 dark:text-slate-100 font-extrabold hover:text-purple-700 transition-all duration-300 p-2 rounded-full bg-gray-200 dark:bg-gray-800">
+                        <button onClick={handleChangeTheme} className="text-xl py-2 px-3 text-neutral-900 dark:text-slate-100 font-extrabold hover:text-secondary transition-all duration-300 p-2 rounded-full bg-gray-200 dark:bg-gray-800">
                             <ThemeIcon />
                         </button>
                         <Link to="/login">
-                            <button className="bg-gradient-to-r from-yellow-700 to-[#1b5d3c] text-neutral-900 dark:text-slate-100 py-2 px-3 rounded-md text-lg font-extrabold hover:text-purple-700 transition-all duration-300">
+                            <button className="bg-gradient-to-r from-primary-2 to-secondary-2 text-neutral-900 dark:text-slate-100 py-2 px-3 rounded-md text-lg font-extrabold hover:text-secondary transition-all duration-300">
                                 Iniciar Sesión
                             </button>
                         </Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
                         <ul>
                             {navItems.map((item, index) => (
                                 <li key={index} className="py-4 flex items-center space-x-2">
-                                    <p className="text-neutral-900 dark:text-slate-100 cursor-pointer text-lg font-extrabold hover:text-purple-700 transition-all duration-300">
+                                    <p className="text-neutral-900 dark:text-slate-100 cursor-pointer text-lg font-extrabold hover:text-secondary transition-all duration-300">
                                         {item.icon}
                                     </p>
                                     <LinkScroll
@@ -88,7 +88,7 @@ const Navbar = () => {
                                         smooth={true}
                                         offset={-110}
                                         duration={500}
-                                        className="text-neutral-900 dark:text-slate-100 cursor-pointer text-lg font-extrabold hover:text-purple-700 transition-all duration-300"
+                                        className="text-neutral-900 dark:text-slate-100 cursor-pointer text-lg font-extrabold hover:text-secondary transition-all duration-300"
                                         onClick={toggleNavbar}
                                     >
                                         {item.label}
@@ -99,11 +99,11 @@ const Navbar = () => {
                         <div className="flex space-x-6">
                             <button
                                 onClick={handleChangeTheme}
-                                className="text-xl py-2 px-3 text-neutral-900 dark:text-slate-100 font-extrabold hover:text-purple-700 transition-all duration-300 p-2 rounded-full bg-gray-200 dark:bg-gray-800">
+                                className="text-xl py-2 px-3 text-neutral-900 dark:text-slate-100 font-extrabold hover:text-secondary transition-all duration-300 p-2 rounded-full bg-gray-200 dark:bg-gray-800">
                                 <ThemeIcon />
                             </button>
                             <Link to="/login">
-                                <button className="py-2 px-3 rounded-md bg-gradient-to-r from-yellow-700 to-[#1b5d3c] text-neutral-900 dark:text-slate-100 text-lg font-extrabold hover:text-purple-700 transition-all duration-300">
+                                <button className="py-2 px-3 rounded-md bg-gradient-to-r from-primary-2 to-secondary-2 text-neutral-900 dark:text-slate-100 text-lg font-extrabold hover:text-secondary transition-all duration-300">
                                     Iniciar Sesión
                                 </button>
                             </Link>
