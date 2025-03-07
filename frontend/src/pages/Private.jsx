@@ -1,5 +1,4 @@
 import { lazy, useEffect, useState } from 'react';
-// import AppLayout from '../components/AppLayout';
 import { useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import LockPage from './LockPage';
@@ -31,9 +30,10 @@ const Private = () => {
 
     // Definir las rutas disponibles según el rol del usuario
     let routes;
-    if (userRole === ROLES.PROPIETARIO || userRole === ROLES.ADMIN ) {
+    if (userRole === ROLES.PROPIETARIO || userRole === ROLES.ADMIN) {
         routes = (
-            <Route path="/dashboard" element={<AdminDashboard />}>
+            // <Route path="/dashboard" element={<AdminDashboard />}>
+            <>
                 <Route index element={<Navigate to="inicio" />} />
                 <Route path="/inicio" element={<Inicio />} />
                 <Route path="/gestion-mesas" element={<GestionMesas />} />
@@ -41,7 +41,8 @@ const Private = () => {
                 <Route path="/gestion-productos" element={<GestionProductos />} />
                 <Route path="/metodos-pago" element={<MetodosPago />} />
                 <Route path="/licencia" element={<Licencia />} />
-            </Route>
+            </>
+            // </Route>
         );
     } else if (userRole === ROLES.JUGADOR) {
         routes = (
