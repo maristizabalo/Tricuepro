@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import LockPage from './LockPage';
 import { ROLES } from '../utils/constants';
 import Loading from '../components/layout/Loading';
+import AppLayout from '../components/layout/AppLayout';
 
 // Importación de componentes con lazy loading
 const AdminDashboard = lazy(() => import('./private/Dashboard'));
@@ -30,25 +31,25 @@ const Private = () => {
 
     // Definir las rutas disponibles según el rol del usuario
     let routes;
-    if (userRole === ROLES.PROPIETARIO || userRole === ROLES.ADMIN) {
-        routes = (
-            // <Route path="/dashboard" element={<AdminDashboard />}>
-            <>
-                <Route index element={<Navigate to="inicio" />} />
-                <Route path="/inicio" element={<Inicio />} />
-                <Route path="/gestion-mesas" element={<GestionMesas />} />
-                <Route path="/configuracion" element={<Configuracion />} />
-                <Route path="/gestion-productos" element={<GestionProductos />} />
-                <Route path="/metodos-pago" element={<MetodosPago />} />
-                <Route path="/licencia" element={<Licencia />} />
-            </>
-            // </Route>
-        );
-    } else if (userRole === ROLES.JUGADOR) {
-        routes = (
-            <Route path="/lock" element={<LockPage />} />
-        );
-    }
+    // if (userRole === ROLES.PROPIETARIO || userRole === ROLES.ADMIN) {
+    //     routes = (
+    //         // <Route path="/dashboard" element={<AdminDashboard />}>
+    //         <>
+    //             {/* <Route index element={<Navigate to="inicio" />} />
+    //             <Route path="/inicio" element={<Inicio />} />
+    //             <Route path="/gestion-mesas" element={<GestionMesas />} />
+    //             <Route path="/configuracion" element={<Configuracion />} />
+    //             <Route path="/gestion-productos" element={<GestionProductos />} />
+    //             <Route path="/metodos-pago" element={<MetodosPago />} />
+    //             <Route path="/licencia" element={<Licencia />} /> */}
+    //         </>
+    //         // </Route>
+    //     );
+    // } else if (userRole === ROLES.JUGADOR) {
+    //     routes = (
+    //         <Route path="/lock" element={<LockPage />} />
+    //     );
+    // }
 
 
     // if (userRole === ROLES.GERENCIA) {
@@ -75,26 +76,12 @@ const Private = () => {
     //     );
     // }
 
-    // Mostrar el AppLayout solo si el rol es 2 o 3
-    const showAppLayout = userRole === ROLES.ADMIN;
-
     return (
-        <>
+        <AppLayout>
             <Routes>
                 {routes}
             </Routes>
-            {/* {showAppLayout ?
-                <AppLayout>
-                    <Routes>
-                        {routes}
-                    </Routes>
-                </AppLayout>
-                :
-                <Routes>
-                    {routes}
-                </Routes>
-            } */}
-        </>
+        </AppLayout>
     );
 }
 

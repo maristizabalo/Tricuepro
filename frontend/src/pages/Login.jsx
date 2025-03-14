@@ -4,7 +4,7 @@ import { Row, Col, Form, Input, Button, Typography } from "antd";
 import { FaLock, FaUserAlt } from "react-icons/fa";
 import Title from "antd/es/typography/Title";
 import logo_kroco from "../assets/images/logo_v7-nobackground.png";
-import { login } from '../services/authServices';
+import { login } from '../services/authService';
 import { jwtDecode } from 'jwt-decode';
 import Particle from "../components/layout/Particle";
 import { useDispatch } from "react-redux";
@@ -17,12 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const session = queryParams.get('session');
-  // const [formRegisterData, setFormRegisterData] = useState({
-  //   username: '',
-  //   password: '',
-  //   nombre: ''
-  // });
-  const [loginMode, setLoginMode] = useState(true)
+  const [loginMode, setLoginMode] = useState(true);
 
   useEffect(() => {
     if (session === 'expired') {
@@ -44,15 +39,9 @@ const Login = () => {
         navigate('/private/lock');
       } else if (user.rol === ROLES.PROPIETARIO) {
         navigate('/private/inicio');
-      }
-      else if (user.rol === ROLES.ADMIN) {
+      } else if (user.rol === ROLES.ADMIN) {
         navigate('/private/inicio');
       }
-      // } else if (user.rol === ROLES.GERENCIA) {
-      //   navigate('/private/estadisticas');
-      // } else if (user.rol === ROLES.BARRIDO) {
-      //   navigate('/private/barrido');
-      // }
     } catch (error) {
       // openNotificationWithIcon(notification, 'error', 'Verifica tu usuario y clave, si el error continúa contacta con el administrador.', '', 4);
       console.log("error", error)

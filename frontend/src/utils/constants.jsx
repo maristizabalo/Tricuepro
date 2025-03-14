@@ -47,9 +47,47 @@ export const features = [
   },
 ];
 
+export const PrivateRoutes = {
+  CONSULTA: 'consulta',
+  INSERCION: 'insercion',
+  ACCESS_DENIED: 'acces-denied'
+};
+
 export const ROLES = {
-    NONE: 0,
-    JUGADOR: 1,
-    PROPIETARIO: 2,
-    ADMIN: 3,
+  NONE: 0,
+  JUGADOR: 1,
+  PROPIETARIO: 2,
+  ADMIN: 3,
 }
+
+export const PERMISOS = {
+  ADMIN_USUARIOS:  1,
+  CONSULTAR_DISTRITO: 2,
+  CONSULTAR_ENTIDAD: 3,
+  CARGAR_MASIVAMENTE: 4,
+  EDITAR_PREDIO: 5,
+  GERNERAR_REPORTE: 6
+};
+
+export const LINKS = {
+  inicio: {
+      path: '/private/inicio',
+      icon: 'AiOutlineHome',
+      label: 'Inicio',
+  },
+  administrador: {
+      path: '/private/administrador',
+      icon: 'RiAdminFill',
+      label: 'Administrador',
+  },
+  mesas: {
+      path: '/private/mesas',
+      icon: 'RiUploadFill',
+      label: 'Mesas',
+  },
+  en_linea: {
+      path: '/private/en-linea',
+      icon: 'AiOutlineCloudUpload',
+      label: 'En linea',
+  }
+};

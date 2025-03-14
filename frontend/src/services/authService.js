@@ -9,14 +9,14 @@ export const login = async (values) => {
     }
 };
 
-export const register = async (values) => {
-    try {
-        const response = await api.post('auth/user/', values);
-        return response.data;
-    } catch (error) {
-        console.error(error)
-    }
-};
+// export const register = async (values) => {
+//     try {
+//         const response = await api.post('auth/user/', values);
+//         return response.data;
+//     } catch (error) {
+//         console.error(error)
+//     }
+// };
 
 export const changePasswordService = async (id, values) => {
     try {
