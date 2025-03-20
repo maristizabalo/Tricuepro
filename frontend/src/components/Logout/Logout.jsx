@@ -28,9 +28,9 @@ const Logout = ({ collapsed }) => {
     }
   };
   const logoutButton = collapsed ?
-    <BiLogOut className="text-4xl p-1 ml-[-10px] text-primaryRed" onClick={exit} />
+    <BiLogOut className="text-4xl p-1 ml-[-10px] text-primary-2" onClick={exit} />
     :
-    <Button onClick={exit} className="text-white font-extrabold bg-primaryRed">Cerrar Sesion</Button>;
+    <Button onClick={exit} className="text-white font-extrabold bg-primary-2">Cerrar Sesion</Button>;
 
 
   return (

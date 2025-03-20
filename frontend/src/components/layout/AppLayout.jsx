@@ -8,6 +8,7 @@ import { RiMenuUnfold2Fill, RiMenuUnfoldFill } from 'react-icons/ri';
 import NavItem from './NavItem';
 import Loading from './Loading';
 import { ROLES } from '../../utils/constants';
+import ThemeToggle from './ThemeToggle';
 
 
 const AppLayout = (props) => {
@@ -17,22 +18,22 @@ const AppLayout = (props) => {
     return Object.entries(ROLES).find(([key, value]) => value === roleNumber)?.[0] || "Desconocido";
   };
   return (
-    <Layout className='bg-gray-300'>
-      <Sider collapsed={collapsed} className='bg-gray-300' width={240}>
-        <div className={`full-view-layout pt-4 ${collapsed ? 'mx-2' : 'mx-4'}`}>
+    <Layout className='bg-red-600'>
+      <Sider collapsed={collapsed} width={240}>
+        <div className={`bg-gray-300 dark:bg-gray-900 full-view-layout pt-4 ${collapsed ? 'px-2' : 'px-4'}`}>
           {/* Información del Usuario */}
-          <div className={`bg-white rounded-lg shadow-sm shadow-primaryRed ${collapsed ? 'w-13 h-16 mx-2 p-0' : 'w-full p-3'}`}>
+          <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-sm shadow-primary-2-1 ${collapsed ? 'w-13 h-16 mx-2 p-0' : 'w-full p-3'}`}>
             <div className="flex">
               {/* Icono de Usuario */}
-              <FaUserCircle className={`text-5xl text-gray-700 ${collapsed ? 'mx-2' : 'mr-4'}`} />
+              <FaUserCircle className={`text-5xl text-gray-700 dark:text-white ${collapsed ? 'mx-2' : 'mr-4'}`} />
 
               {/* Información del Usuario */}
               {!collapsed && (
                 <div>
-                  <h2 className="text-sm font-semibold">{userState.nombre}</h2>
+                  <h2 className="text-sm font-semibold dark:text-white">{userState.nombre}</h2>
                   <div className="flex mt-1">
-                    <p className="text-xs font-semibold">Rol:</p>
-                    <p className="text-xs text-gray-500 ml-1">{getRoleName(userState.rol)}</p>
+                    <p className="text-xs font-semibold dark:text-white">Rol:</p>
+                    <p className="text-xs text-gray-500 dark:text-white ml-1">{getRoleName(userState.rol)}</p>
                   </div>
                 </div>
               )}
@@ -43,33 +44,34 @@ const AppLayout = (props) => {
           <NavItem collapsed={collapsed} />
         </div>
       </Sider>
-      <Layout className='bg-gray-300'>
-        <Header className="shadow-sm shadow-primaryRed mt-4 mr-5 flex rounded-lg bg-white p-0">
+      <Layout className='bg-gray-300 dark:bg-gray-900'>
+        <Header className="shadow-sm shadow-primary-2 mt-4 mr-5 flex rounded-lg bg-white dark:bg-gray-800 p-0">
           <div className="flex items-center">
             <div className="">
               {collapsed ? (
                 <RiMenuUnfoldFill
-                  className="text-3xl ml-5 text-primaryRed cursor-pointer rounded-full"
+                  className="text-3xl ml-5 text-primary-2 cursor-pointer rounded-full"
                   onClick={() => setCollapsed(!collapsed)}
                 />
               ) : (
                 <RiMenuUnfold2Fill
-                  className="text-3xl ml-5 text-primaryRed cursor-pointer rounded-full"
+                  className="text-3xl ml-5 text-primary-2 cursor-pointer rounded-full"
                   onClick={() => setCollapsed(!collapsed)}
                 />
               )}
             </div>
           </div>
           <div className="flex-1 text-center mt-3">
-            <div className="text-black font-extrabold text-4xl">KROCO - BILLAR</div>
+            <div className="text-black dark:text-white font-extrabold text-4xl">KROCO - BILLAR</div>
           </div>
+          <ThemeToggle />
           <div className="flex space-x-2 mr-4 my-2">
             <img src={logo_kroco} alt="Logo Kroco" className='w-36' />
           </div>
         </Header>
         <Suspense fallback={<Loading fullscreen={false} />} >
           <Content
-            className='shadow-sm shadow-primaryRed p-6 bg-white mr-5 mt-4 mb-4 rounded-lg'
+            className='shadow-sm shadow-primary-2 p-6 bg-white dark:bg-gray-800 mr-5 mt-4 mb-4 rounded-lg'
           >
             {props.children}
           </Content>

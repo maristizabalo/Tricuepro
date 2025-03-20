@@ -6,6 +6,7 @@ import { BulbOutlined, MoonOutlined } from "@ant-design/icons";
 import logoOscuro from "../../assets/images/logos/negro-nobg.png";
 import logoClaro from "../../assets/images/logos/blanco-nobg.png";
 import { navItems } from "../../utils/constants";
+import ThemeToggle from "../layout/ThemeToggle";
 
 const Navbar = () => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -58,9 +59,7 @@ const Navbar = () => {
                         ))}
                     </ul>
                     <div className="hidden lg:flex justify-center space-x-6 items-center">
-                        <button onClick={handleChangeTheme} className="text-xl py-2 px-3 text-neutral-900 dark:text-slate-100 font-extrabold hover:text-secondary transition-all duration-300 p-2 rounded-full bg-gray-200 dark:bg-gray-800">
-                            <ThemeIcon />
-                        </button>
+                        <ThemeToggle />
                         <Link to="/login">
                             <button className="bg-gradient-to-r from-primary-2 to-secondary-2 text-neutral-900 dark:text-slate-100 py-2 px-3 rounded-md text-lg font-extrabold hover:text-secondary transition-all duration-300">
                                 Iniciar Sesión

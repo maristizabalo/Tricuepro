@@ -120,22 +120,13 @@ code {
   src: url(./assets/fuentes/MuseoSansCondensed-300.ttf);
 }
 
+
 * {
   margin: 0;
   font-family: MuseoSansCondensed-300;
 }
 
-.full-view{
-  background-color: #ffffff00;
-  display: flex; 
-  flex-direction: column;
-  height: 100vh;
-  position: relative;
-  padding: 0px 15px;
-}
-
 .full-view-layout {
-  background-color: #ffffff00;
   display: flex;
   flex-direction: column;
   height: 100vh;

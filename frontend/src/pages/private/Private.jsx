@@ -5,11 +5,12 @@ import LockPage from '../LockPage';
 import { ROLES } from '../../utils/constants';
 import Loading from '../../components/layout/Loading';
 import AppLayout from '../../components/layout/AppLayout';
+import GestionBillares from './GestionBillares';
 
 // Importación de componentes con lazy loading
 const AdminDashboard = lazy(() => import('./Dashboard'));
 const Inicio = lazy(() => import('./Inicio'));
-const GestionMesas = lazy(() => import('./GestionMesas'));
+const GestionMesas = lazy(() => import('./GestionBillares'));
 const Configuracion = lazy(() => import('./Configuracion'));
 const GestionProductos = lazy(() => import('./GestionProductos'));
 const MetodosPago = lazy(() => import('./MetodosPago'));
@@ -61,7 +62,7 @@ const Private = () => {
         console.log("Tiene rol de JUGADOR SIN VISTA AUN")
     } else if (userRole === ROLES.PROPIETARIO) {
         routes = (
-            <Route path="/my-billiards" element={<GestionMesas />} />
+            <Route path="/my-billiards" element={<GestionBillares />} />
         );
     } else if (userRole === ROLES.ADMIN) {
         routes = (

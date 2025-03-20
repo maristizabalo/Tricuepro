@@ -76,7 +76,7 @@ export const LINKS = {
       label: 'Billares',
   },
   my_tables: {
-      path: '/private/my_tables',
+      path: '/private/my-tables',
       icon: 'RiBilliardsLine',
       label: 'Mesas',
   },

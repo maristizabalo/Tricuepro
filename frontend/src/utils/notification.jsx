@@ -5,7 +5,8 @@ const openNotificationWithIcon = (type, title, description, duration) => {
     message: title,
     description: description,
     duration: duration,
-    placement: 'top'
+    placement: 'top',
+    // className: 'dark:bg-gray-800 dark:text-white',
   });
 };
 

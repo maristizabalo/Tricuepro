@@ -68,7 +68,7 @@ const Login = () => {
             >
               <Form
                 name="normal_login"
-                className="redForm border border-primaryRed shadow-lg shadow-secondaryRed p-8 rounded-lg bg-gray-900"
+                className="redForm border border-primary shadow-lg shadow-secondaryRed p-8 rounded-lg bg-gray-900"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
               >
