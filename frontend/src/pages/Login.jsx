@@ -10,20 +10,13 @@ import Particle from "../components/layout/Particle";
 import { useDispatch } from "react-redux";
 import { createUser } from "../redux/states/user";
 import { ROLES } from "../utils/constants";
+import openNotificationWithIcon from "../utils/notification";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
+  
   const navigate = useNavigate();
-  const queryParams = new URLSearchParams(location.search);
-  const session = queryParams.get('session');
   const [loginMode, setLoginMode] = useState(true);
-
-  useEffect(() => {
-    if (session === 'expired') {
-      // openNotificationWithIcon(notification, 'warning', 'Su sesión ha expirado, por favor vuelva a iniciar sesión.', '', 5);
-    }
-  }, [session]);
 
   const onFinish = async (values) => {
     try {
@@ -31,7 +24,7 @@ const Login = () => {
       const user = jwtDecode(result.access);
       user['auth_tokens'] = result;
       dispatch(createUser(user));
-      // openNotificationWithIcon(notification, 'success', 'Inicio de sesión exitoso', '', 4);
+      openNotificationWithIcon('success', 'Inicio de sesión exitoso', '', 4);
       console.log("notification succes")
 
       // Determinar la ruta de redireccionamiento según el rol del usuario
@@ -43,7 +36,7 @@ const Login = () => {
         navigate('/private/inicio');
       }
     } catch (error) {
-      // openNotificationWithIcon(notification, 'error', 'Verifica tu usuario y clave, si el error continúa contacta con el administrador.', '', 4);
+      openNotificationWithIcon('error', 'Verifica tu usuario y clave, si el error continúa contacta con el administrador.', '', 4);
       console.log("error", error)
     }
   };

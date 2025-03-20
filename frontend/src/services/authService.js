@@ -1,4 +1,5 @@
 import {api} from "../utils/api";
+import { handleErrorResponse } from "../utils/errorHandlingService";
 
 export const login = async (values) => {
     try {
@@ -9,15 +10,6 @@ export const login = async (values) => {
     }
 };
 
-// export const register = async (values) => {
-//     try {
-//         const response = await api.post('auth/user/', values);
-//         return response.data;
-//     } catch (error) {
-//         console.error(error)
-//     }
-// };
-
 export const changePasswordService = async (id, values) => {
     try {
         const response = await api.patch(`auth/user/password/${id}/`, values);
@@ -26,8 +18,6 @@ export const changePasswordService = async (id, values) => {
         console.error(error)
     }
 };
-
-
 
 export const editUserService = async (id, values) => {
     try {

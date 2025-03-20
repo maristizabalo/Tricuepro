@@ -82,8 +82,8 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=90),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=180),
+    'ACCESS_TOKEN_LIFETIME': timedelta(seconds=10),
+    'REFRESH_TOKEN_LIFETIME': timedelta(seconds=10),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': False,
@@ -112,10 +112,6 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = 'account.CustomUser'
-
-AUTH_TOKEN_EXPIRACY_MINUTES = 60 * 24 # one day
-# AUTH_TOKEN_EXPIRACY_MINUTES = 1 # one minute
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

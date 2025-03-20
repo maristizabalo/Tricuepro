@@ -1,19 +1,19 @@
 import { lazy, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import LockPage from './LockPage';
-import { ROLES } from '../utils/constants';
-import Loading from '../components/layout/Loading';
-import AppLayout from '../components/layout/AppLayout';
+import LockPage from '../LockPage';
+import { ROLES } from '../../utils/constants';
+import Loading from '../../components/layout/Loading';
+import AppLayout from '../../components/layout/AppLayout';
 
 // Importación de componentes con lazy loading
-const AdminDashboard = lazy(() => import('./private/Dashboard'));
-const Inicio = lazy(() => import('./private/Inicio'));
-const GestionMesas = lazy(() => import('./private/GestionMesas'));
-const Configuracion = lazy(() => import('./private/Configuracion'));
-const GestionProductos = lazy(() => import('./private/GestionProductos'));
-const MetodosPago = lazy(() => import('./private/MetodosPago'));
-const Licencia = lazy(() => import('./private/Licencia'));
+const AdminDashboard = lazy(() => import('./Dashboard'));
+const Inicio = lazy(() => import('./Inicio'));
+const GestionMesas = lazy(() => import('./GestionMesas'));
+const Configuracion = lazy(() => import('./Configuracion'));
+const GestionProductos = lazy(() => import('./GestionProductos'));
+const MetodosPago = lazy(() => import('./MetodosPago'));
+const Licencia = lazy(() => import('./Licencia'));
 
 const Private = () => {
     const userRole = useSelector((store) => store.userInfo.user.rol);
@@ -31,6 +31,8 @@ const Private = () => {
 
     // Definir las rutas disponibles según el rol del usuario
     let routes;
+
+
     // if (userRole === ROLES.PROPIETARIO || userRole === ROLES.ADMIN) {
     //     routes = (
     //         // <Route path="/dashboard" element={<AdminDashboard />}>
@@ -77,6 +79,7 @@ const Private = () => {
     // }
 
     return (
+        
         <AppLayout>
             <Routes>
                 {routes}

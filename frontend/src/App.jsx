@@ -4,17 +4,17 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import Loading from "./components/layout/Loading";
 import PrivateRoute from "./utils/PrivateRoute";
-import Private from "./pages/Private";
 import { Provider } from "react-redux";
 import store from './redux/store'
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Private from "./pages/private/Private";
 
 
 const App = () => {
 
   return (
-    
+
     <ConfigProvider
       theme={{
         token: {
