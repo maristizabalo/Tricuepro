@@ -7,11 +7,15 @@ import logo_kroco from '../../assets/images/logos/blanco-nobg.png'
 import { RiMenuUnfold2Fill, RiMenuUnfoldFill } from 'react-icons/ri';
 import NavItem from './NavItem';
 import Loading from './Loading';
+import { ROLES } from '../../utils/constants';
 
 
 const AppLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
   const userState = useSelector((store) => store.userInfo.user);
+  const getRoleName = (roleNumber) => {
+    return Object.entries(ROLES).find(([key, value]) => value === roleNumber)?.[0] || "Desconocido";
+  };
   return (
     <Layout className='bg-gray-300'>
       <Sider collapsed={collapsed} className='bg-gray-300' width={240}>
@@ -25,10 +29,10 @@ const AppLayout = (props) => {
               {/* Información del Usuario */}
               {!collapsed && (
                 <div>
-                  <h2 className="text-sm font-semibold">{userState.nombreCompleto}</h2>
+                  <h2 className="text-sm font-semibold">{userState.nombre}</h2>
                   <div className="flex mt-1">
                     <p className="text-xs font-semibold">Rol:</p>
-                    <p className="text-xs text-gray-500 ml-1">{userState.rol.nombre}</p>
+                    <p className="text-xs text-gray-500 ml-1">{getRoleName(userState.rol)}</p>
                   </div>
                 </div>
               )}

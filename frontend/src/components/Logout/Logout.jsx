@@ -1,9 +1,8 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../services/authService";
 import { resetUser } from "../../redux/states/user";
 import { useNavigate } from "react-router-dom";
-import { Button, notification } from "antd";
-import { useEffect } from "react";
+import { Button } from "antd";
 import { BiLogOut } from "react-icons/bi";
 import { resetAdmin } from "../../redux/states/admin";
 import openNotificationWithIcon from "../../utils/notification";
@@ -12,17 +11,18 @@ const Logout = ({ collapsed }) => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const refreshToken = useSelector((store) => store.userInfo.auth_tokens.refresh);
 
   const exit = async () => {
     try {
-      await logout();
+      await logout(refreshToken);
       dispatch(resetUser());
       dispatch(resetAdmin());
       openNotificationWithIcon('success', 'Cerro sesión con exito', '', 4);
       navigate('/');
     } catch (error) {
       dispatch(resetUser());
-      openNotificationWithIcon('error', 'Error al cerrar sesión error desde aqui', error.message, 4); // Mostrar mensaje de error
+      openNotificationWithIcon('error', 'Error al cerrar sesión error desde aqui', error.message, 4);
       console.error(error);
       navigate('/');
     }

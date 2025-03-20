@@ -2,8 +2,8 @@ import React from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { AiOutlineHome, AiOutlineCloudUpload, AiOutlineBarChart } from 'react-icons/ai';
-import { RiAdminFill, RiUploadFill } from 'react-icons/ri';
+import { RiBilliardsLine  } from 'react-icons/ri';
+import { FaCrown } from "react-icons/fa";
 import { getMenuItemsByPermissions } from '../../utils/menuConfig';
 import Logout from '../Logout/Logout';
 
@@ -12,11 +12,8 @@ const NavItem = ({ collapsed }) => {
     const menuItems = getMenuItemsByPermissions(userState.rol);
     const itemsNav = Object.keys(menuItems).map((key) => {
         const IconComponent = {
-            AiOutlineHome,
-            RiAdminFill,
-            RiUploadFill,
-            AiOutlineCloudUpload,
-            AiOutlineBarChart
+            FaCrown,
+            RiBilliardsLine
         }[menuItems[key].icon];
 
         return {

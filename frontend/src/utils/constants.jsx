@@ -70,19 +70,14 @@ export const PERMISOS = {
 };
 
 export const LINKS = {
-  inicio: {
-      path: '/private/inicio',
-      icon: 'AiOutlineHome',
-      label: 'Inicio',
+  my_billiards: {
+      path: '/private/my-billiards',
+      icon: 'FaCrown',
+      label: 'Billares',
   },
-  administrador: {
-      path: '/private/administrador',
-      icon: 'RiAdminFill',
-      label: 'Administrador',
-  },
-  mesas: {
-      path: '/private/mesas',
-      icon: 'RiUploadFill',
+  my_tables: {
+      path: '/private/my_tables',
+      icon: 'RiBilliardsLine',
       label: 'Mesas',
   },
   en_linea: {

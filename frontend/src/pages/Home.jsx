@@ -5,7 +5,6 @@ import FeatureSection from '../components/Home/FeatureSection';
 import Footer from '../components/layout/Footer';
 import openNotificationWithIcon from '../utils/notification';
 import { useLocation } from 'react-router-dom';
-import { notification } from 'antd';
 
 const Home = () => {
 

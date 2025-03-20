@@ -6,7 +6,16 @@ export const login = async (values) => {
         const response = await api.post('auth/token/', values);
         return response.data;
     } catch (error) {
-        console.error(error)
+        handleErrorResponse(error)
+    }
+};
+
+export const refreshToken = async (values) => {
+    try {
+        const response = await api.post('auth/token/refresh/', values);
+        return response.data;
+    } catch (error) {
+        handleErrorResponse(error)
     }
 };
 
@@ -15,7 +24,7 @@ export const changePasswordService = async (id, values) => {
         const response = await api.patch(`auth/user/password/${id}/`, values);
         return response.data;
     } catch (error) {
-        console.error(error)
+        handleErrorResponse(error)
     }
 };
 
@@ -24,7 +33,7 @@ export const editUserService = async (id, values) => {
         const response = await api.patch(`auth/user/${id}/`, values);
         return response.data;
     } catch (error) {
-        console.error(error)
+        handleErrorResponse(error)
     }
 };
 
@@ -36,7 +45,7 @@ export const activateUserService = async (id) => {
         const response = await api.patch(`auth/user/${id}/`, payload);
         return response.data;
     } catch (error) {
-        console.error(error)
+        handleErrorResponse(error)
     }
 };
 
@@ -48,7 +57,7 @@ export const deactivateUserService = async (id) => {
         const response = await api.patch(`auth/user/${id}/`, payload);
         return response.data;
     } catch (error) {
-        console.error(error)
+        handleErrorResponse(error)
     }
 };
 
@@ -57,7 +66,7 @@ export const userListService = async () => {
         const response = await api.get('auth/user/');
         return response.data;
     } catch (error) {
-        console.error(error)
+        handleErrorResponse(error)
     }
 };
 
@@ -66,15 +75,18 @@ export const rolListService = async () => {
         const response = await api.get('auth/rol/');
         return response.data;
     } catch (error) {
-        console.error(error)
+        handleErrorResponse(error)
     }
 };
 
-export const logout = async () => {
+export const logout = async (refreshToken) => {
     try {
-        const response = await api.get('auth/logout/');
+        const payload = {
+            refresh: refreshToken
+        }
+        const response = await api.post('auth/logout/', payload);
         return response.data.detail
     } catch (error) {
-        console.error(error)
+        handleErrorResponse(error)
     }
 };

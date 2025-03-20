@@ -1,5 +1,4 @@
 // errorHandlingService.js
-import { notification } from 'antd';
 import { resetUser } from '../redux/states/user';
 import store from '../redux/store';
 

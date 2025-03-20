@@ -54,32 +54,32 @@ const Private = () => {
     // }
 
 
-    // if (userRole === ROLES.GERENCIA) {
-    //     routes = (
-    //         <Route path="/estadisticas" element={<EstadisticasPage />} />
-    //     );
-    // } else if (userRole === ROLES.JUGADOR) {
-    //     routes = (
-    //         <Route path="/lock" element={<LockPage />} />
-    //     );
-    // } else if (userRole === ROLES.BARRIDO) {
-    //     routes = (
-    //         <Route path="/barrido" element={<BarridoPage />} />
-    //     );
-    // } else {
-    //     routes = (
-    //         <>
-    //             <Route path="/taller" element={<TallerPage />} />
-    //             <Route path="/informe" element={<InformePage />} />
-    //             <Route path="/administrador" element={<AdministradorPage />} />
-    //             <Route path="/perfil" element={<PerfilPage />} />
-    //             <Route path="/notas" element={<NotasPage />} />
-    //         </>
-    //     );
-    // }
+    if (userRole === ROLES.JUGADOR) {
+        // routes = (
+        //     <Route path="/estadisticas" element={<EstadisticasPage />} />
+        // );
+        console.log("Tiene rol de JUGADOR SIN VISTA AUN")
+    } else if (userRole === ROLES.PROPIETARIO) {
+        routes = (
+            <Route path="/my-billiards" element={<GestionMesas />} />
+        );
+    } else if (userRole === ROLES.ADMIN) {
+        routes = (
+            <Route path="/my-tables" element={<GestionMesas />} />
+        );
+    } else {
+        routes = (
+            <>
+                <Route path="/taller" element={<TallerPage />} />
+                <Route path="/informe" element={<InformePage />} />
+                <Route path="/administrador" element={<AdministradorPage />} />
+                <Route path="/perfil" element={<PerfilPage />} />
+                <Route path="/notas" element={<NotasPage />} />
+            </>
+        );
+    }
 
     return (
-        
         <AppLayout>
             <Routes>
                 {routes}

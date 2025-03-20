@@ -31,9 +31,9 @@ const Login = () => {
       if (user.rol === ROLES.JUGADOR) {
         navigate('/private/lock');
       } else if (user.rol === ROLES.PROPIETARIO) {
-        navigate('/private/inicio');
+        navigate('/private/my-billiards');
       } else if (user.rol === ROLES.ADMIN) {
-        navigate('/private/inicio');
+        navigate('/private/my-tables');
       }
     } catch (error) {
       openNotificationWithIcon('error', 'Verifica tu usuario y clave, si el error continúa contacta con el administrador.', '', 4);
