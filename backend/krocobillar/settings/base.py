@@ -20,7 +20,8 @@ INSTALLED_APPS = [
     "corsheaders",
     'apps.account',
     'apps.Billiard',
-    'apps.Table'
+    'apps.Table',
+    'apps.AuthTable'
 ]
 
 MIDDLEWARE = [
