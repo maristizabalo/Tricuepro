@@ -417,3 +417,4 @@ migrations/
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+**/migrations/__init__.py
