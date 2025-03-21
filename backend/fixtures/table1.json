@@ -1,0 +1,12 @@
+[
+    {
+        "model": "Table.table",
+        "pk": 1,
+        "fields": {
+            "nombre": "Mesa 1",
+            "billar": 1,
+            "estado": true,
+            "tipo": "Mesa de three cushion"
+        }
+    }
+]

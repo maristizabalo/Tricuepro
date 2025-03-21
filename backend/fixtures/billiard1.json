@@ -1,0 +1,14 @@
+[
+    {
+        "model": "Billiard.billiard",
+        "pk": 1,
+        "fields": {
+            "nombre": "Maicol's 1",
+            "direccion": "Casa",
+            "admin": 1,
+            "propietarios": [
+                1
+            ]
+        }
+    }
+]

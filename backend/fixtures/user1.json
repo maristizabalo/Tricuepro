@@ -1,0 +1,58 @@
+[
+    {
+        "model": "account.rol",
+        "pk": 1,
+        "fields": {
+            "nombre": "JUGADOR",
+            "descripcion": "Rol para jugadores"
+        }
+    },
+    {
+        "model": "account.rol",
+        "pk": 2,
+        "fields": {
+            "nombre": "PROPIETARIO",
+            "descripcion": "Rol para propietarios de billar"
+        }
+    },
+    {
+        "model": "account.rol",
+        "pk": 3,
+        "fields": {
+            "nombre": "ADMINISTRADOR",
+            "descripcion": "Rol para administradores de cada billar"
+        }
+    },
+    {
+        "model": "account.customuser",
+        "pk": 1,
+        "fields": {
+            "last_login": null,
+            "username": "mjaristizabal",
+            "nombre": "Maicol Aristizabal",
+            "password": "pbkdf2_sha256$870000$oFQwNGlWv9tX807HJYp5Ks$aVOU1uhb3HnPhBVaNH2sj+M2EHoOOcKkh8y0Vh3TTYA=",
+            "rol": 2,
+            "created_at": "2025-03-21T15:47:49.560Z",
+            "updated_at": "2025-03-21T15:47:49.560Z",
+            "is_staff": true,
+            "is_superuser": true,
+            "is_active": true
+        }
+    },
+    {
+        "model": "account.customuser",
+        "pk": 2,
+        "fields": {
+            "last_login": null,
+            "username": "rlozano",
+            "nombre": "Ruben Lozano",
+            "password": "pbkdf2_sha256$870000$t58X4uWvLkT8I4W4gCsjOj$cRM54m9Hh9eSuBXOvQ029h+LOgwmREJaeWbOPDhwj7Q=",
+            "rol": 3,
+            "created_at": "2025-03-21T15:48:19.196Z",
+            "updated_at": "2025-03-21T15:48:19.196Z",
+            "is_staff": true,
+            "is_superuser": true,
+            "is_active": true
+        }
+    }
+]
