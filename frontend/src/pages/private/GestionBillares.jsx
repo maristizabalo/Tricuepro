@@ -21,6 +21,8 @@ const GestionBillares = () => {
     ];
 
     return (
+        <div className='px-4'>
+        <h1 className='text-2xl font-extrabold text-center text-black dark:text-white mb-4'>Gestión de Billares</h1>
         <Row gutter={[16, 16]}>
             {billares.map((billar) => (
                 <Col key={billar.id} span={8}>
@@ -37,6 +39,7 @@ const GestionBillares = () => {
                 </Col>
             ))}
         </Row>
+        </div>
     );
 };
 

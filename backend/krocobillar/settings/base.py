@@ -18,7 +18,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     "corsheaders",
-    'apps.account'
+    'apps.account',
+    'apps.Billiard',
+    'apps.Table'
 ]
 
 MIDDLEWARE = [

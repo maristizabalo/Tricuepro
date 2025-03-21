@@ -5,6 +5,11 @@ class Rol(models.Model):
     nombre = models.CharField(max_length=254)
     descripcion = models.CharField(max_length=254)
 
+    def __str__(self):
+        return self.nombre
+    
+    class Meta:
+        db_table = 'ROL'
 
 class UserManager(BaseUserManager):
     def create_user(self, username, password, **extra_fields):
@@ -28,7 +33,7 @@ class UserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser):
 
     username = models.CharField(max_length=254, unique=True)
-    nombre = models.CharField(max_length=254)
+    nombre = models.CharField(max_length=254, null=True)
     password = models.CharField(max_length=128, null=True)
     rol = models.ForeignKey(Rol, on_delete=models.CASCADE, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -50,5 +55,8 @@ class CustomUser(AbstractBaseUser):
 
     def has_perm(self, perm, obj=None):
         return True
+    
+    class Meta:
+        db_table = 'USER'
 
 

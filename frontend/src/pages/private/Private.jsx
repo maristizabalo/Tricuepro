@@ -5,12 +5,12 @@ import LockPage from '../LockPage';
 import { ROLES } from '../../utils/constants';
 import Loading from '../../components/layout/Loading';
 import AppLayout from '../../components/layout/AppLayout';
-import GestionBillares from './GestionBillares';
 
 // Importación de componentes con lazy loading
-const AdminDashboard = lazy(() => import('./Dashboard'));
-const Inicio = lazy(() => import('./Inicio'));
-const GestionMesas = lazy(() => import('./GestionBillares'));
+// const AdminDashboard = lazy(() => import('./Dashboard'));
+// const Inicio = lazy(() => import('./Inicio'));
+const GestionBillares = lazy(() => import('./GestionBillares'));
+const GestionMesas = lazy(() => import('./GestionMesas'));
 const Configuracion = lazy(() => import('./Configuracion'));
 const GestionProductos = lazy(() => import('./GestionProductos'));
 const MetodosPago = lazy(() => import('./MetodosPago'));
