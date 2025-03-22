@@ -7,23 +7,14 @@ export const EmptyUserState = {
 }
 
 export const persistLocalStorageUser = (username, user_id, rol, nombre, auth_tokens) => {
-    const user = {
-        'username': username,
-        'nombre': nombre,
-        'user_id': user_id,
-        'rol': rol
-    }
-    localStorage.setItem('user', JSON.stringify({ ...user }));
     localStorage.setItem('auth_tokens', JSON.stringify({ ...auth_tokens }));
 }
 
 export const clearLocalStorageUser = () => {
-    localStorage.removeItem('user');
     localStorage.removeItem('auth_tokens');
 }
 
 const initialStateFromLocalStorage = () => {
-    const user = JSON.parse(localStorage.getItem('user')) || {};
     const auth_tokens = JSON.parse(localStorage.getItem('auth_tokens')) || "";
 
     return {
@@ -38,10 +29,6 @@ export const userSlice = createSlice({
     reducers: {
         createUser: (state, action) => {
             persistLocalStorageUser(
-                action.payload.username,
-                action.payload.user_id,
-                action.payload.rol,
-                action.payload.nombre,
                 action.payload.auth_tokens
             );
             return {
